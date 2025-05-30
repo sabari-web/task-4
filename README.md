@@ -58,6 +58,5 @@ sudo ufw status numbered
 sudo ufw delete number
 Verify removal:
 
-bash
-Copy code
+
 sudo ufw status
