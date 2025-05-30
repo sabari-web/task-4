@@ -1,1 +1,63 @@
 
+Cyber Security Internship – Task 4 Summary
+Title: Setup and Use a Firewall on Linux using UFW
+Objective: Configure and test basic firewall rules to allow or block traffic on Kali Linux using UFW.
+Step-by-Step Procedure with Commands
+Step 1: Open the Firewall Configuration Tool (UFW)
+First, check if UFW is installed and active:
+
+
+sudo ufw status
+If it shows Status: inactive, enable it using:
+
+sudo ufw enable
+Step 2: List Current Firewall Rules
+To see all currently active rules:
+
+
+sudo ufw status numbered
+This displays a list of allowed/denied ports with rule numbers.
+
+Step 3: Add a Rule to Block Inbound Traffic on Port 23 (Telnet)
+
+sudo ufw deny 23
+This blocks all incoming traffic on port 23, which is used by the insecure Telnet protocol.
+
+To confirm the rule was added:
+
+
+sudo ufw status numbered
+
+Step 4: Test the Rule by Attempting a Telnet Connection
+Install Telnet if not already installed:
+
+
+sudo apt install telnet
+Then test connecting to localhost on port 23:
+
+
+telnet localhost 23
+
+
+
+Step 5: Add a Rule to Allow SSH (Port 22)
+SSH is essential for remote access. To allow it:
+
+
+sudo ufw allow 22
+To verify:
+
+
+sudo ufw status numbered
+
+Step 6: Remove the Telnet Block Rule to Restore Original State
+Find the rule number for the Telnet block from status numbered. 
+
+
+
+sudo ufw delete 1
+
+
+Confirm removal:
+
+sudo ufw status
